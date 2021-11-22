@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  cfs-pi:
+    privileged: true
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      network: host
+      args:
+        - VARIANT=20.04
+    image: cfs-pi:latest
+    container_name: cfs-pi
+    working_dir: /workspace
+    ulimits:
+        nproc: 2048
+        rtprio: 99
+    cap_add:
+      - SYS_NICE
+      - NET_ADMIN
+    sysctls:
+        fs.mqueue.msg_max: 1024
+  
