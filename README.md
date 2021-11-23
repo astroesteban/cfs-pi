@@ -27,7 +27,7 @@ this project I use the `Caelum RC4` version of cFS.
 In order to compile cFS for your host operating system run the following:
 
 ```sh
-make SIMULATION=native install
+make SIMULATION=native OMIT_DEPRECATED=true install
 ```
 
 ## Help (TODO)
