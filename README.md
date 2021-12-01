@@ -27,7 +27,12 @@ this project I use the `Caelum RC4` version of cFS.
 In order to compile cFS for your host operating system run the following:
 
 ```sh
-make SIMULATION=native OMIT_DEPRECATED=true install
+make SIMULATION=native O=build-native OMIT_DEPRECATED=true install
+```
+
+To cross-compile cFS for the Raspberry Pi run the following:
+```sh
+make SIMULATION=raspberrypi O=build-raspberry OMIT_DEPRECATED=true install
 ```
 
 ## Help (TODO)

@@ -10,6 +10,9 @@ COPY .docker/scripts scripts/
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     build-essential \
+    gcc-arm-linux-gnueabihf \
+    g++-arm-linux-gnueabihf \
+    gdb-multiarch \
     cmake \
     ccache \
     doxygen \

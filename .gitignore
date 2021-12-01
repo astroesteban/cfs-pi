@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/linux,cmake,c++,git,visualstudiocode,python,virtualenv
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,cmake,c++,git,visualstudiocode,python,virtualenv
 
+### cFS ###
+build*
+
 ### C++ ###
 # Prerequisites
 *.d
