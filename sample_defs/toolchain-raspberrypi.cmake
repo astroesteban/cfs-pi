@@ -23,13 +23,13 @@ set(CMAKE_OBJDUMP       arm-linux-gnueabihf-objdump)
 set(CMAKE_C_GDB         gdb-multiarch)
 
 # Configure the find commands for finding the toolchain
-SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM   NEVER)
-SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY   NEVER)
-SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE   NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM   NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY   NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE   NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE   NEVER)
 
 # These variable settings are specific to cFE/OSAL and determines which 
 # abstraction layers are built when using this toolchain
-SET(CFE_SYSTEM_PSPNAME "pc-linux")
-SET(OSAL_SYSTEM_BSPTYPE "generic-linux")
-SET(OSAL_SYSTEM_OSTYPE "posix")
+set(CFE_SYSTEM_PSPNAME "pc-linux")
+set(OSAL_SYSTEM_BSPTYPE "generic-linux")
+set(OSAL_SYSTEM_OSTYPE "posix")

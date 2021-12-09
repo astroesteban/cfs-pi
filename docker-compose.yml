@@ -12,6 +12,8 @@ services:
     image: cfs-pi:latest
     container_name: cfs-pi
     working_dir: /workspace
+    stdin_open: true
+    tty: true
     ulimits:
         nproc: 2048
         rtprio: 99
@@ -20,4 +22,9 @@ services:
       - NET_ADMIN
     sysctls:
         fs.mqueue.msg_max: 1024
+    ports:
+      - 3000:3000
+    volumes:
+      # Update this to wherever you want VS Code to mount the folder of your project
+      - .:/workspace:cached
   
