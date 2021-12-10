@@ -9,6 +9,8 @@ COPY .docker/scripts scripts/
 # Python virtual environment.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    iputils-ping \
+    openssh-server \
     build-essential \
     gcc-arm-linux-gnueabihf \
     g++-arm-linux-gnueabihf \

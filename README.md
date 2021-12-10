@@ -80,18 +80,19 @@ make SIMULATION=raspberrypi O=build-raspberry install
 
 ## Flashing Raspberry Pi
 
-> On Mac OS and Windows you'll need to run the following commands on the host
-operating system and **not** the Docker container. This is due to a limitation
-of Docker's virtualization service.
-
 The first thing you need to do to get the cFS build onto the Raspberry Pi is to
-get the IP address of your Pi. The simplest way to do this is by trying the
+get the local IP address of your Pi. The simplest way to do this is by trying the
 following from your host machine (outside of the Docker container):
 
 ```sh
 # Make sure your Raspberry Pi is connected
 ping raspberrypi.local
 ```
+
+> You might need to run the above commands on the host OS and **not** in the
+Docker container. I kept getting a "Name or service not known" error when I 
+tried it from inside of the container. The good thing is I got the other
+commands to work from _inside_ of the container!
 
 Once you get the address of your Raspberry Pi you can copy the cFS build folder
 over to it by running:
