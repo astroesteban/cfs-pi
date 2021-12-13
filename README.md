@@ -9,7 +9,10 @@ The cFS Pi project provides an all-in-one development environment for
 cross-compiling the NASA Core Flight System (cFS) to the Raspberry Pi. The
 project is based upon leveraging Docker and Visual Studio Code to provide
 a devcontainer environment that contains all the tooling you need to compile
-cFS for either the host x86_64 Ubuntu OS or for the Raspberry Pi OS.
+cFS for either the host x86_64 Ubuntu OS or for the Raspberry Pi OS. I had seen
+many examples of getting cFS running on the Raspberry Pi but most of those
+involved compiling cFS on the Pi itself using older versions of cFS. I wanted
+to make a cross-compilation environment that used modern cFS.
 
 The [cFS](https://github.com/nasa/cFS) is an open-source generic flight
 software architecture framework used on flagship NASA spacecraft like the
