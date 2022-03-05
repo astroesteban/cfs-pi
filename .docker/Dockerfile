@@ -1,5 +1,5 @@
 ARG VARIANT="20.04"
-FROM ubuntu:${VARIANT} as base
+FROM ubuntu:${VARIANT} AS dev
 
 ARG DEBIAN_FRONTEND=noninteractive
 
