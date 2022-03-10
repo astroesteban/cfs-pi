@@ -4,6 +4,7 @@
 
 ### cFS ###
 build*
+rpi_password.txt
 
 ### C++ ###
 # Prerequisites
