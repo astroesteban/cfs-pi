@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     iputils-ping \
     openssh-server \
+    sshpass \
     build-essential \
     gcc-arm-linux-gnueabihf \
     g++-arm-linux-gnueabihf \
@@ -31,3 +32,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && . /tmp/cfs-venv/bin/activate \
     && python3 -m pip install PyQt5 pyzmq \
     && printf '\n[ -d "%s" ] && . %s/bin/activate\n' /tmp/cfs-venv /tmp/cfs-venv >> ~/.bashrc
+
+# create this environment variable so we can use it in vs code.
+ENV PYTHON_INSTALL_LOC=/tmp/cfs-venv/bin/python3

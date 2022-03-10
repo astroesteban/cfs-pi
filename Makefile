@@ -118,6 +118,9 @@ endif
 all:
 	$(MAKE) --no-print-directory -C "$(O)" mission-all
 
+flash:
+	sshpass -f ${RPI_PASSWORD_FILE} scp -r $(DESTDIR)-raspberrypi/$(INSTALLPREFIX)/cpu1 ${RPI_USERNAME}@${RPI_HOSTNAME}:~
+
 install:
 	$(MAKE) --no-print-directory -C "$(O)" DESTDIR="$(DESTDIR)" mission-install
 

@@ -1,0 +1,56 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // Build tasks
+        {
+            "label": "build",
+            "detail": "Build workspace (default)",
+            "type": "shell",
+            "command": "make -j 10 SIMULATION=${input:target} O=build-${input:target} install",
+            "options": {
+                "cwd": "${workspaceFolder}"
+              },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        // Clean
+        {
+            "label": "clean",
+            "detail": "Run the clean target",
+            "type": "shell",
+            "command": "rm -rf build-${input:target}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+              },
+            "problemMatcher": "$gcc"
+        },
+        // Flash
+        {
+            "label": "flash",
+            "detail": "Copy the binaries to the Raspberry Pi",
+            "type": "shell",
+            "command": "make flash",
+            "options": {
+                "cwd": "${workspaceFolder}"
+              },
+            "problemMatcher": "$gcc"
+        },
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "target",
+            "description": "What is your target platform?",
+            "options": [
+              "native",
+              "raspberrypi"
+            ],
+            "default": "native"
+          },
+      ]
+}

@@ -13,6 +13,12 @@ services:
     image: cfs-pi:latest
     container_name: cfs-pi
     working_dir: /workspace
+    environment:
+      - RPI_PASSWORD_FILE=/run/secrets/rpi_password
+      - RPI_USERNAME=pi
+      - RPI_HOSTNAME=169.254.251.102
+    secrets:
+      - rpi_password
     stdin_open: true
     tty: true
     ulimits:
@@ -33,4 +39,6 @@ services:
     volumes:
       # Update this to wherever you want VS Code to mount the folder of your project
       - .:/workspace:cached
-  
+secrets:
+    rpi_password:
+      file: ./rpi_password.txt

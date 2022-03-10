@@ -26,7 +26,8 @@
 	"extensions": [
 		"ms-vscode.cpptools-extension-pack",
 		"github.vscode-pull-request-github",
-		"eamodio.gitlens"
+		"eamodio.gitlens",
+		"ms-python.python"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
