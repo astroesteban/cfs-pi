@@ -2,7 +2,6 @@ version: '3.4'
 
 services:
   cfs-pi:
-    privileged: true
     build:
       context: .
       dockerfile: .docker/Dockerfile
@@ -28,6 +27,7 @@ services:
       - SYS_NICE
       - NET_ADMIN
       - SYS_PTRACE
+      - SYS_RESOURCE
     security_opt:
       - seccomp:unconfined
       - apparmor:unconfined
