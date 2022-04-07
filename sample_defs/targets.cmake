@@ -106,9 +106,3 @@ SET(MISSION_CPUNAMES cpu1)
 SET(cpu1_PROCESSORID 1)
 # SET(cpu1_APPLIST demo)
 SET(cpu1_FILELIST cfe_es_startup.scr)
-
-### RPI ###
-# SET(rpi_PROCESSORID 1)
-# SET(rpi_FILELIST cfe_es_startup.scr)
-# # SET(rpi_PLATFORM )
-# SET(rpi_SYSTEM rpi)
