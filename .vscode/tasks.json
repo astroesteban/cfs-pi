@@ -8,7 +8,7 @@
             "label": "build",
             "detail": "Build workspace (default)",
             "type": "shell",
-            "command": "make -j 10 SIMULATION=${input:target} O=build-${input:target} install",
+            "command": "make -j 10 SIMULATION=${input:target} BUILDTYPE=${input:buildtype} O=build-${input:target} install",
             "options": {
                 "cwd": "${workspaceFolder}"
               },
@@ -51,6 +51,18 @@
               "raspberrypi"
             ],
             "default": "native"
+          },
+          {
+            "type": "pickString",
+            "id": "buildtype",
+            "description": "What type of build do you want?",
+            "options": [
+              "Debug",
+              "Release",
+              "RelWithDebInfo",
+              "MinSizeRel"
+            ],
+            "default": "Debug"
           },
       ]
 }
