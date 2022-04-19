@@ -47,9 +47,11 @@
 **      than this define, SB sends an event and rejects the send.
 **
 **  \par Limits
-**      This parameter has a lower limit of 6 (CCSDS primary header size).  There
-**      are no restrictions on the upper limit however, the maximum message size is
-**      system dependent and should be verified.  Total message size values that are
+**      This parameter has a lower limit of 6 (CCSDS primary header size). There
+**      are no restrictions on the upper limit however, the maximum message size
+*is
+**      system dependent and should be verified.  Total message size values that
+*are
 **      checked against this configuration are defined by a 16 bit data word.
 */
 #define CFE_MISSION_SB_MAX_SB_MSG_SIZE 32768
@@ -66,9 +68,11 @@
 **      when the default choice is changed.
 **
 **  \par Limits
-**      if CFE_MISSION_TIME_CFG_DEFAULT_TAI is defined as true then CFE_MISSION_TIME_CFG_DEFAULT_UTC must be
+**      if CFE_MISSION_TIME_CFG_DEFAULT_TAI is defined as true then
+*CFE_MISSION_TIME_CFG_DEFAULT_UTC must be
 **      defined as false.
-**      if CFE_MISSION_TIME_CFG_DEFAULT_TAI is defined as false then CFE_MISSION_TIME_CFG_DEFAULT_UTC must be
+**      if CFE_MISSION_TIME_CFG_DEFAULT_TAI is defined as false then
+*CFE_MISSION_TIME_CFG_DEFAULT_UTC must be
 **      defined as true.
 */
 #define CFE_MISSION_TIME_CFG_DEFAULT_TAI true
@@ -96,18 +100,21 @@
 **      data within the packet describes what the time "was" at the tone.
 **      If the time at the tone data packet precedes the tone signal, then
 **      the data within the packet describes what the time "will be" at
-**      the tone.  One, and only one, of the following symbols must be set to true:
+**      the tone.  One, and only one, of the following symbols must be set to
+*true:
 **      - CFE_MISSION_TIME_AT_TONE_WAS
 **      - CFE_MISSION_TIME_AT_TONE_WILL_BE
 **      Note: If Time Services is defined as using a simulated tone signal
-**            (see #CFE_MISSION_TIME_CFG_FAKE_TONE above), then the tone data packet
+**            (see #CFE_MISSION_TIME_CFG_FAKE_TONE above), then the tone data
+*packet
 **            must follow the tone signal.
 **
 **  \par Limits
-**      Either CFE_MISSION_TIME_AT_TONE_WAS or CFE_MISSION_TIME_AT_TONE_WILL_BE must be set to true.
+**      Either CFE_MISSION_TIME_AT_TONE_WAS or CFE_MISSION_TIME_AT_TONE_WILL_BE
+*must be set to true.
 **      They may not both be true and they may not both be false.
 */
-#define CFE_MISSION_TIME_AT_TONE_WAS     true
+#define CFE_MISSION_TIME_AT_TONE_WAS true
 #define CFE_MISSION_TIME_AT_TONE_WILL_BE false
 
 /**
@@ -115,7 +122,8 @@
 **
 **  \par Description:
 **      Based on the definition of Time and Tone Order
-**      (CFE_MISSION_TIME_AT_TONE_WAS/WILL_BE) either the "time at the tone" signal or
+**      (CFE_MISSION_TIME_AT_TONE_WAS/WILL_BE) either the "time at the tone"
+*signal or
 **      data packet will follow the other. This definition sets the valid window
 **      of time for the second of the pair to lag behind the first. Time
 **      Services will invalidate both the tone and packet if the second does not
@@ -183,9 +191,9 @@
 **      Minute - 0 to 59
 **      Second - 0 to 59
 */
-#define CFE_MISSION_TIME_EPOCH_YEAR   1980
-#define CFE_MISSION_TIME_EPOCH_DAY    1
-#define CFE_MISSION_TIME_EPOCH_HOUR   0
+#define CFE_MISSION_TIME_EPOCH_YEAR 1980
+#define CFE_MISSION_TIME_EPOCH_DAY 1
+#define CFE_MISSION_TIME_EPOCH_HOUR 0
 #define CFE_MISSION_TIME_EPOCH_MINUTE 0
 #define CFE_MISSION_TIME_EPOCH_SECOND 0
 
@@ -235,7 +243,8 @@
 **      portion of a Full CDS Name of the following form:
 **      "ApplicationName.CDSName"
 **
-**      This length does not need to include an extra character for NULL termination.
+**      This length does not need to include an extra character for NULL
+*termination.
 **
 **  \par Limits
 **       This value should be kept as a multiple of 4, to maintain alignment of
@@ -251,7 +260,8 @@
 **      Indicates the maximum length (in characters) of the formatted text
 **      string portion of an event message
 **
-**      This length does not need to include an extra character for NULL termination.
+**      This length does not need to include an extra character for NULL
+*termination.
 **
 **  \par Limits
 **      Not Applicable
@@ -260,11 +270,15 @@
 
 /** \name Checksum/CRC algorithm identifiers */
 /** \{ */
-#define CFE_MISSION_ES_CRC_8  1 /**< \brief CRC ( 8 bit additive - returns 32 bit total) (Currently not implemented) */
-#define CFE_MISSION_ES_CRC_16 2 /**< \brief CRC (16 bit additive - returns 32 bit total) */
-#define CFE_MISSION_ES_CRC_32                                                              \
-    3 /**< \brief CRC (32 bit additive - returns 32 bit total) (Currently not implemented) \
-       */
+#define CFE_MISSION_ES_CRC_8                                                \
+  1 /**< \brief CRC ( 8 bit additive - returns 32 bit total) (Currently not \
+       implemented) */
+#define CFE_MISSION_ES_CRC_16 \
+  2 /**< \brief CRC (16 bit additive - returns 32 bit total) */
+#define CFE_MISSION_ES_CRC_32                                               \
+  3 /**< \brief CRC (32 bit additive - returns 32 bit total) (Currently not \
+     * implemented)                                                         \
+     */
 /** \} */
 
 /**
@@ -276,7 +290,8 @@
 **      Table Image data integrity values.
 **
 **  \par Limits
-**      Currently only CFE_MISSION_ES_CRC_16 is supported (see #CFE_MISSION_ES_CRC_16)
+**      Currently only CFE_MISSION_ES_CRC_16 is supported (see
+*#CFE_MISSION_ES_CRC_16)
 */
 #define CFE_MISSION_ES_DEFAULT_CRC CFE_MISSION_ES_CRC_16
 
@@ -288,7 +303,8 @@
 **      ('TblName') portion of a Full Table Name of the following
 **      form: "ApplicationName.TblName"
 **
-**      This length does not need to include an extra character for NULL termination.
+**      This length does not need to include an extra character for NULL
+*termination.
 **
 **  \par Limits
 **       This value should be kept as a multiple of 4, to maintain alignment of
@@ -307,24 +323,24 @@
 **  \par Limits
 **      Not Applicable
 */
-#define CFE_MISSION_EVS_CMD_MSG  1
+#define CFE_MISSION_EVS_CMD_MSG 1
 #define CFE_MISSION_TEST_CMD_MSG 2
-#define CFE_MISSION_SB_CMD_MSG   3
-#define CFE_MISSION_TBL_CMD_MSG  4
+#define CFE_MISSION_SB_CMD_MSG 3
+#define CFE_MISSION_TBL_CMD_MSG 4
 #define CFE_MISSION_TIME_CMD_MSG 5
-#define CFE_MISSION_ES_CMD_MSG   6
+#define CFE_MISSION_ES_CMD_MSG 6
 
-#define CFE_MISSION_ES_SEND_HK_MSG  8
+#define CFE_MISSION_ES_SEND_HK_MSG 8
 #define CFE_MISSION_EVS_SEND_HK_MSG 9
 /* Offset 10 is available */
-#define CFE_MISSION_SB_SEND_HK_MSG   11
-#define CFE_MISSION_TBL_SEND_HK_MSG  12
+#define CFE_MISSION_SB_SEND_HK_MSG 11
+#define CFE_MISSION_TBL_SEND_HK_MSG 12
 #define CFE_MISSION_TIME_SEND_HK_MSG 13
 
 #define CFE_MISSION_SB_SUB_RPT_CTRL_MSG 14
 
 #define CFE_MISSION_TIME_TONE_CMD_MSG 16
-#define CFE_MISSION_TIME_1HZ_CMD_MSG  17
+#define CFE_MISSION_TIME_1HZ_CMD_MSG 17
 
 /**
 **  \cfemissioncfg cFE Portable Message Numbers for Global Messages
@@ -351,22 +367,22 @@
 **  \par Limits
 **      Not Applicable
 */
-#define CFE_MISSION_ES_HK_TLM_MSG     0
-#define CFE_MISSION_EVS_HK_TLM_MSG    1
-#define CFE_MISSION_TEST_HK_TLM_MSG   2
-#define CFE_MISSION_SB_HK_TLM_MSG     3
-#define CFE_MISSION_TBL_HK_TLM_MSG    4
-#define CFE_MISSION_TIME_HK_TLM_MSG   5
+#define CFE_MISSION_ES_HK_TLM_MSG 0
+#define CFE_MISSION_EVS_HK_TLM_MSG 1
+#define CFE_MISSION_TEST_HK_TLM_MSG 2
+#define CFE_MISSION_SB_HK_TLM_MSG 3
+#define CFE_MISSION_TBL_HK_TLM_MSG 4
+#define CFE_MISSION_TIME_HK_TLM_MSG 5
 #define CFE_MISSION_TIME_DIAG_TLM_MSG 6
 
-#define CFE_MISSION_EVS_LONG_EVENT_MSG_MSG  8
+#define CFE_MISSION_EVS_LONG_EVENT_MSG_MSG 8
 #define CFE_MISSION_EVS_SHORT_EVENT_MSG_MSG 9
-#define CFE_MISSION_SB_STATS_TLM_MSG        10
-#define CFE_MISSION_ES_APP_TLM_MSG          11
-#define CFE_MISSION_TBL_REG_TLM_MSG         12
-#define CFE_MISSION_SB_ALLSUBS_TLM_MSG      13
-#define CFE_MISSION_SB_ONESUB_TLM_MSG       14
-#define CFE_MISSION_ES_MEMSTATS_TLM_MSG     16
+#define CFE_MISSION_SB_STATS_TLM_MSG 10
+#define CFE_MISSION_ES_APP_TLM_MSG 11
+#define CFE_MISSION_TBL_REG_TLM_MSG 12
+#define CFE_MISSION_SB_ALLSUBS_TLM_MSG 13
+#define CFE_MISSION_SB_ONESUB_TLM_MSG 14
+#define CFE_MISSION_ES_MEMSTATS_TLM_MSG 16
 
 /**
 **  \cfeescfg Mission Max Apps in a message
@@ -374,12 +390,15 @@
 **  \par Description:
 **      Indicates the maximum number of apps in a telemetry housekeeping message
 **
-**      This affects the layout of command/telemetry messages but does not affect run
+**      This affects the layout of command/telemetry messages but does not
+*affect run
 **      time behavior or internal allocation.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 */
 #define CFE_MISSION_ES_MAX_APPLICATIONS 16
@@ -388,14 +407,18 @@
 **  \cfeescfg Define Max Number of Performance IDs for messages
 **
 **  \par Description:
-**       Defines the maximum number of perf ids allowed in command/telemetry messages
+**       Defines the maximum number of perf ids allowed in command/telemetry
+*messages
 **
-**      This affects the layout of command/telemetry messages but does not affect run
+**      This affects the layout of command/telemetry messages but does not
+*affect run
 **      time behavior or internal allocation.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 */
@@ -429,56 +452,75 @@
 **      Indicates the maximum length (in characters) of the entire table name
 **      within software bus messages, in "AppName.TableName" notation.
 **
-**      This affects the layout of command/telemetry messages but does not affect run
+**      This affects the layout of command/telemetry messages but does not
+*affect run
 **      time behavior or internal allocation.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 **       This value should be kept as a multiple of 4, to maintain alignment of
 **       any possible neighboring fields without implicit padding.
 */
-#define CFE_MISSION_TBL_MAX_FULL_NAME_LEN (CFE_MISSION_TBL_MAX_NAME_LENGTH + CFE_MISSION_MAX_API_LEN + 4)
+#define CFE_MISSION_TBL_MAX_FULL_NAME_LEN \
+  (CFE_MISSION_TBL_MAX_NAME_LENGTH + CFE_MISSION_MAX_API_LEN + 4)
 
 /**
-**  \cfesbcfg Maximum Number of pipes that SB command/telemetry messages may hold
+**  \cfesbcfg Maximum Number of pipes that SB command/telemetry messages may
+*hold
 **
 **  \par Description:
-**       Dictates the maximum number of unique Pipes the SB message definitions will hold.
+**       Dictates the maximum number of unique Pipes the SB message definitions
+*will hold.
 **
-**       This affects the layout of command/telemetry messages but does not affect run
+**       This affects the layout of command/telemetry messages but does not
+*affect run
 **       time behavior or internal allocation.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 */
 #define CFE_MISSION_SB_MAX_PIPES 64
 
 /**
-**  \cfemissioncfg cFE Maximum length for pathnames within data exchange structures
+**  \cfemissioncfg cFE Maximum length for pathnames within data exchange
+*structures
 **
 **  \par Description:
-**       The value of this constant dictates the size of pathnames within all structures
-**       used for external data exchange, such as Software bus messages and table definitions.
-**       This is typically the same as OS_MAX_PATH_LEN but that is OSAL dependent --
-**       and as such it definable on a per-processor/OS basis and hence may be different
-**       across multiple processors.  It is recommended to set this to the value of the
+**       The value of this constant dictates the size of pathnames within all
+*structures
+**       used for external data exchange, such as Software bus messages and
+*table definitions.
+**       This is typically the same as OS_MAX_PATH_LEN but that is OSAL
+*dependent --
+**       and as such it definable on a per-processor/OS basis and hence may be
+*different
+**       across multiple processors.  It is recommended to set this to the value
+*of the
 **       largest OS_MAX_PATH_LEN in use on any CPU on the mission.
 **
-**       This affects only the layout of command/telemetry messages and table definitions;
-**       internal allocation may use the platform-specific OS_MAX_PATH_LEN value.
+**       This affects only the layout of command/telemetry messages and table
+*definitions;
+**       internal allocation may use the platform-specific OS_MAX_PATH_LEN
+*value.
 **
 **       This length must include an extra character for NULL termination.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) and ground tools must share the
+**       All CPUs within the same SB domain (mission) and ground tools must
+*share the
 **       same definition.
-**       Note this affects the size of messages, so it must not cause any message
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 **       This value should be kept as a multiple of 4, to maintain alignment of
@@ -487,25 +529,35 @@
 #define CFE_MISSION_MAX_PATH_LEN 64
 
 /**
-**  \cfemissioncfg cFE Maximum length for filenames within data exchange structures
+**  \cfemissioncfg cFE Maximum length for filenames within data exchange
+*structures
 **
 **  \par Description:
-**       The value of this constant dictates the size of filenames within all structures
-**       used for external data exchange, such as Software bus messages and table definitions.
-**       This is typically the same as OS_MAX_FILE_LEN but that is OSAL dependent --
-**       and as such it definable on a per-processor/OS basis and hence may be different
-**       across multiple processors.  It is recommended to set this to the value of the
+**       The value of this constant dictates the size of filenames within all
+*structures
+**       used for external data exchange, such as Software bus messages and
+*table definitions.
+**       This is typically the same as OS_MAX_FILE_LEN but that is OSAL
+*dependent --
+**       and as such it definable on a per-processor/OS basis and hence may be
+*different
+**       across multiple processors.  It is recommended to set this to the value
+*of the
 **       largest OS_MAX_FILE_LEN in use on any CPU on the mission.
 **
-**       This affects only the layout of command/telemetry messages and table definitions;
-**       internal allocation may use the platform-specific OS_MAX_FILE_LEN value.
+**       This affects only the layout of command/telemetry messages and table
+*definitions;
+**       internal allocation may use the platform-specific OS_MAX_FILE_LEN
+*value.
 **
 **       This length must include an extra character for NULL termination.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) and ground tools must share the
+**       All CPUs within the same SB domain (mission) and ground tools must
+*share the
 **       same definition.
-**       Note this affects the size of messages, so it must not cause any message
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 **       This value should be kept as a multiple of 4, to maintain alignment of
@@ -514,24 +566,33 @@
 #define CFE_MISSION_MAX_FILE_LEN 20
 
 /**
-**  \cfemissioncfg cFE Maximum length for API names within data exchange structures
+**  \cfemissioncfg cFE Maximum length for API names within data exchange
+*structures
 **
 **  \par Description:
-**       The value of this constant dictates the size of filenames within all structures
-**       used for external data exchange, such as Software bus messages and table definitions.
-**       This is typically the same as OS_MAX_API_LEN but that is OSAL dependent --
-**       and as such it definable on a per-processor/OS basis and hence may be different
-**       across multiple processors.  It is recommended to set this to the value of the
+**       The value of this constant dictates the size of filenames within all
+*structures
+**       used for external data exchange, such as Software bus messages and
+*table definitions.
+**       This is typically the same as OS_MAX_API_LEN but that is OSAL dependent
+*--
+**       and as such it definable on a per-processor/OS basis and hence may be
+*different
+**       across multiple processors.  It is recommended to set this to the value
+*of the
 **       largest OS_MAX_API_LEN in use on any CPU on the mission.
 **
-**       This affects only the layout of command/telemetry messages and table definitions;
+**       This affects only the layout of command/telemetry messages and table
+*definitions;
 **       internal allocation may use the platform-specific OS_MAX_API_LEN value.
 **
 **       This length must include an extra character for NULL termination.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 **       This value should be kept as a multiple of 4, to maintain alignment of
@@ -546,17 +607,21 @@
 **      Indicates the maximum length (in characters) of the entire CDS name
 **      of the following form: "ApplicationName.CDSName"
 **
-**       This affects the layout of command/telemetry messages but does not affect run
+**       This affects the layout of command/telemetry messages but does not
+*affect run
 **       time behavior or internal allocation.
 **
 **  \par Limits
-**       All CPUs within the same SB domain (mission) must share the same definition
-**       Note this affects the size of messages, so it must not cause any message
+**       All CPUs within the same SB domain (mission) must share the same
+*definition
+**       Note this affects the size of messages, so it must not cause any
+*message
 **       to exceed the max length.
 **
 **       This value should be kept as a multiple of 4, to maintain alignment of
 **       any possible neighboring fields without implicit padding.
 */
-#define CFE_MISSION_ES_CDS_MAX_FULL_NAME_LEN (CFE_MISSION_ES_CDS_MAX_NAME_LENGTH + CFE_MISSION_MAX_API_LEN + 4)
+#define CFE_MISSION_ES_CDS_MAX_FULL_NAME_LEN \
+  (CFE_MISSION_ES_CDS_MAX_NAME_LENGTH + CFE_MISSION_MAX_API_LEN + 4)
 
 #endif /* SAMPLE_MISSION_CFG_H */
