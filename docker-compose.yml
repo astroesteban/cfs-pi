@@ -8,7 +8,7 @@ services:
       target: dev
       network: host
       args:
-        - VARIANT=20.04
+        - VARIANT=22.04
     image: cfs-pi:latest
     container_name: cfs-pi
     working_dir: /workspace
@@ -18,6 +18,10 @@ services:
       - RPI_HOSTNAME=169.254.251.102
     secrets:
       - rpi_password
+      # * The following are optional but useful
+      - ssh_public_key
+      - ssh_private_key
+      - gitconfig
     stdin_open: true
     tty: true
     ulimits:
@@ -42,3 +46,10 @@ services:
 secrets:
     rpi_password:
       file: ./rpi_password.txt
+    # * The following are optional but useful
+    ssh_public_key:
+      file: ~/.ssh/id_rsa.pub
+    ssh_private_key:
+      file: ~/.ssh/id_rsa
+    gitconfig:
+      file: ~/.gitconfig-personal

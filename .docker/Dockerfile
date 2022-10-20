@@ -1,4 +1,4 @@
-ARG VARIANT="20.04"
+ARG VARIANT="22.04"
 FROM ubuntu:${VARIANT} AS dev
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -35,3 +35,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # create this environment variable so we can use it in vs code.
 ENV PYTHON_INSTALL_LOC=/tmp/cfs-venv/bin/python3
+
+# * The following sections are optional but useful for using SSH + Git in the container
+# Setup SSH
+RUN mkdir -p -m 0700 ${HOME}/.ssh && \
+    mkdir /var/run/sshd && \
+    echo "StrictHostKeyChecking no " > ~/.ssh/config && \
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+# Create symbolic links to the secrets so that we can use them with git
+# Note that we need to delete any existing files to avoid a simlink error
+RUN ln -s /run/secrets/ssh_public_key ~/.ssh/id_rsa.pub && \
+   ln -s /run/secrets/ssh_private_key ~/.ssh/id_rsa && \
+   ln -s /run/secrets/gitconfig ~/.gitconfig
